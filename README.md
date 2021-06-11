@@ -75,8 +75,8 @@ PUT http://localhost:8080/api/v1/books/update
 Content-Type: application/json
 
 {
-    "id": "20200829011748",
-    "author": "Inaugration of Yes Bank"
+    "id": "123456789",
+    "author": "Autograph Man"
 }
 ```
 
