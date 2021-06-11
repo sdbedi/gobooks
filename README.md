@@ -11,7 +11,7 @@ Status (must CheckedIn or Checkout; defaults to CheckedIn)
 
 Currently, you must supply an author, a title, and a Rating of 1-3 on creating the book. Books are created with a default status of CheckedIn, unless explcitly supplied with a status of CheckedOut. Attempts to supply any other status will trigger an error. 
 
-#Getting Started
+# Getting Started
 You'll need to have Docker, Postgres and Go install on your system. Otherwise, here are the steps:
 ```
 1. Clone the repo
