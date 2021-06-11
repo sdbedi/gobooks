@@ -5,11 +5,11 @@ import (
 )
 
 //Define enums for status, rating
-type status uint
+type status string
 
 const (
-	CHECKEDIN status = iota
-	CHECKEDOUT
+	CheckedIn  status = "CheckedIn"
+	CheckedOut status = "CheckedOut"
 )
 
 type rating uint
@@ -23,19 +23,17 @@ const (
 // Book object for the API
 type Book struct {
 	// Identifier
+	//TODO: Change to pointers for better handling of nil values
 	ID string `gorm:"primary_key" json:"id,omitempty"`
 
 	// General details
-	Title       string    `json:"title,omitempty"`
-	Author      string    `json:"author,omitempty"`
-	PublishDate time.Time `json:"publishdate,omitempty"`
-	Status      status    `json:"status,omitempty"`
-	Rating      rating    `json:"rating,omitempty"`
-	// rating (1-3)
-	// status (checkedin, checkout)
-
-	// Change status
-	//Status BookStatus `json:"status,omitempty"`
+	Title     string `json:"title,omitempty"`
+	Author    string `json:"author,omitempty"`
+	Publisher string `json:"publisher,omitempty"`
+	//TODO: implement date in custom type/struct
+	PublishDate string `json:"publishdate,omitempty"`
+	Status      status `json:"status,omitempty"`
+	Rating      rating `json:"rating,omitempty"`
 
 	// Meta information
 	CreatedOn time.Time `json:"created_on,omitempty"`

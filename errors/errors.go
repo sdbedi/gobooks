@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"time"
 )
 
 var (
@@ -23,8 +22,18 @@ var (
 		Code:    http.StatusBadRequest,
 		Message: "Error invalid argument",
 	}
+	// ErrStatusIsRequired HTTP 400
+	ErrStatusIsRequired = &Error{
+		Code:    http.StatusBadRequest,
+		Message: "Please a provide Status of CheckedIn or CheckedOut",
+	}
+	// ErrRatingIsRequired HTTP 400
+	ErrRatingIsRequired = &Error{
+		Code:    http.StatusBadRequest,
+		Message: "Rating must be 1-3",
+	}
 	// ErrNotFound HTTP 404
-	ErrEventNotFound = &Error{
+	ErrBookNotFound = &Error{
 		Code:    http.StatusNotFound,
 		Message: "Book not found",
 	}
@@ -34,19 +43,19 @@ var (
 		Message: "Request object should be provided",
 	}
 	// ErrValidBookIDIsRequired HTTP 400
-	ErrValidEventIDIsRequired = &Error{
+	ErrValidBookIdIsRequired = &Error{
 		Code:    http.StatusBadRequest,
 		Message: "A valid book id is required",
+	}
+	// ErrValidBookIDIsRequired HTTP 400
+	ErrTitleandAuthorIsRequired = &Error{
+		Code:    http.StatusBadRequest,
+		Message: "A title and author are required",
 	}
 	// ErrInvalidLimit HTTP 400
 	ErrInvalidLimit = &Error{
 		Code:    http.StatusBadRequest,
 		Message: "Limit should be an integral value",
-	}
-	// ErrInvalidTimeFormat HTTP 400
-	ErrInvalidTimeFormat = &Error{
-		Code:    http.StatusBadRequest,
-		Message: "Time Should be passed in RFC3339 Format: " + time.RFC3339,
 	}
 )
 
